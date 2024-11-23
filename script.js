@@ -1,3 +1,6 @@
+// Prevent duplicate form submissions
+let isSubmitting = false;
+
 // Show payment details based on the selected option
 function showPaymentDetails() {
   const paymentOption = document.getElementById("paymentOption").value;
@@ -28,6 +31,16 @@ function showPaymentDetails() {
 document.getElementById("multiStepForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  // Prevent multiple submissions
+  if (isSubmitting) {
+    alert("The form is already being submitted. Please wait.");
+    return;
+  }
+
+  const submitButton = document.querySelector(".submit-button");
+  submitButton.disabled = true; // Disable the submit button
+  isSubmitting = true;
+
   const formData = new FormData(e.target);
   const formObject = {};
   formData.forEach((value, key) => (formObject[key] = value));
@@ -36,6 +49,8 @@ document.getElementById("multiStepForm").addEventListener("submit", async (e) =>
   const paymentStatus = document.getElementById("paymentStatus").value;
   if (!paymentStatus) {
     alert("Please select a payment status before submitting.");
+    submitButton.disabled = false; // Re-enable the button if validation fails
+    isSubmitting = false;
     return;
   }
 
@@ -50,6 +65,7 @@ document.getElementById("multiStepForm").addEventListener("submit", async (e) =>
     });
 
     if (response.ok) {
+      // Proceed to thank you section
       document.querySelectorAll(".form-section").forEach((section) => {
         section.style.display = "none";
       });
@@ -71,6 +87,9 @@ document.getElementById("multiStepForm").addEventListener("submit", async (e) =>
   } catch (error) {
     console.error("Error:", error);
     alert("An error occurred while submitting the form.");
+  } finally {
+    isSubmitting = false; // Reset the submitting flag
+    submitButton.disabled = false; // Re-enable the button for future submissions
   }
 });
 
