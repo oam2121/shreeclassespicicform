@@ -1,0 +1,262 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    background-color: #f9fafc;
+    height: 100%;
+  }
+  
+  /* Wrapper for the form */
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  /* Form Styles */
+  form {
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Headers */
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #1abc9c;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    color: #16a085;
+    margin-top: 30px;
+    border-bottom: 2px solid #16a085;
+    padding-bottom: 5px;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 22px;
+    color: #2c3e50;
+    margin-top: 30px;
+    background-color: #ecf9f5;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  /* Paragraphs */
+  p {
+    color: #34495e;
+    font-size: 15px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  
+  /* Form Group */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 5px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  input:focus, select:focus {
+    outline: none;
+    border-color: #1abc9c;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 12px 18px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .next-button {
+    background-color: #1abc9c;
+    float: right;
+  }
+  
+  .back-button {
+    background-color: #3498db;
+    float: left;
+  }
+  
+  .submit-button {
+    background-color: #e67e22;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Instructions List */
+  ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  ul li {
+    margin-bottom: 8px;
+    color: #34495e;
+  }
+  
+  /* Section Visibility */
+  .form-section {
+    display: none;
+  }
+  
+  .form-section.active {
+    display: block;
+  }
+  
+  /* Highlighted Section Styles */
+  .section-highlight {
+    padding: 15px;
+    background-color: #ecf9f5;
+    border-left: 5px solid #1abc9c;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .section-highlight strong {
+    color: #16a085;
+    font-weight: bold;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    form {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 18px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+  }
+
+  /* General Button Styles */
+button {
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  .back-button {
+    background-color: #3498db; /* Blue color */
+  }
+  
+  .submit-button {
+    background-color: #e67e22; /* Orange color */
+  }
+  
+  /* Button Container for Proper Alignment */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Adds spacing between buttons */
+  }
+
+  #upiDetails img {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  #amountToPay {
+    color: #e67e22;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .back-button {
+    background-color: #3498db;
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button {
+    background-color: #e67e22;
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  button:disabled {
+    background-color: #ccc; /* Gray for disabled buttons */
+    cursor: not-allowed;
+  }
+  
+  button:enabled {
+    background-color: #28a745; /* Green for enabled buttons */
+    cursor: pointer;
+  }
+  
+  
+  

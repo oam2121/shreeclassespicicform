@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shree Classes Picnic Registration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <form id="multiStepForm">
+      
+      <!-- Section 1: Student Details -->
+      <section class="form-section active" id="section1">
+        <h1>Shree Classes Picnic Registration</h1>
+        <div class="section-highlight">
+          <p><strong>Destination:</strong> Sneh Resort</p>
+          <p><strong>Address:</strong> Kasarsai Dam, Hinjawadi Kasarsai Road, Kusgaon P.M., Maharashtra 410506</p>
+        </div>
+        <h2>Student Details</h2>
+        <div class="form-group">
+          <label for="name">Student Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter student's name" required>
+        </div>
+        <div class="form-group">
+          <label for="class">Class/Grade</label>
+          <input type="text" id="class" name="class" placeholder="Enter class/grade" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" placeholder="Enter age" required>
+        </div>
+        <div class="form-group">
+          <label for="guardian">Parent/Guardian Name</label>
+          <input type="text" id="guardian" name="guardian" placeholder="Enter guardian's name" required>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact Number 1</label>
+          <input type="tel" id="contact" name="contact" placeholder="Enter primary contact number" required>
+        </div>
+        <div class="form-group">
+          <label for="contact2">Contact Number 2</label>
+          <input type="tel" id="contact2" name="contact2" placeholder="Enter secondary contact number (optional)">
+        </div>
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" name="email" placeholder="Enter email" required>
+        </div>
+        <button type="button" class="next-button" onclick="nextSection(2)">Next</button>
+      </section>
+      
+      <!-- Section 2: Package Selection -->
+      <section class="form-section" id="section2">
+        <h2 class="section-title">Package Selection</h2>
+        <div class="section-highlight">
+          <p><strong>Relax Package:</strong> ₹999 (Adults) / ₹799 (Kids aged 5-10)</p>
+          <p>
+            Breakfast, Lunch, Hi-Tea, Children's play area (30+ activities), Magic Show, Puppet Show, Mehndi, Folk Dance, 
+            Pottery, Lohar, Bioscope, Demo Farming, Rain Dance (up to 6 PM), Mini Waterpark (up to 6 PM)
+          </p>
+          <p><strong>Delight Package:</strong> ₹1799 (Adults) / ₹1599 (Kids aged 5-10)</p>
+          <p>
+            Includes all Relax Package activities, plus: Camel Ride, Horse Ride, Mirror Maze, Flying Chair, Rocket Ejector, 
+            Bull Ride, Human Gyro, 360 Cycling, Woody Swing, Pendulum Ride, Crazy Ride, Sulfur Car, Farm Tour, 
+            Sneh Safari (Train Ride), Bungee Trampoline (below 50 kg)
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="package">Select Package</label>
+          <select id="package" name="package" required>
+            <optgroup label="Relax Package">
+              <option value="Relax Package (Adult)">Relax Package - ₹999 (Adult)</option>
+              <option value="Relax Package (Kid)">Relax Package - ₹799 (Kid)</option>
+            </optgroup>
+            <optgroup label="Delight Package">
+              <option value="Delight Package (Adult)">Delight Package - ₹1799 (Adult)</option>
+              <option value="Delight Package (Kid)">Delight Package - ₹1599 (Kid)</option>
+            </optgroup>
+          </select>
+        </div>
+        <button type="button" class="back-button" onclick="prevSection(1)">Back</button>
+        <button type="button" class="next-button" onclick="nextSection(3)">Next</button>
+      </section>
+      
+      <!-- Section 3: Additional Information -->
+     <!-- Section 3: Additional Information -->
+     <section class="form-section" id="section3">
+      <h2 class="section-title">Additional Information</h2>
+      <ul>
+        <li>Mode of Transportation: Bus (Details will be shared closer to the date).</li>
+        <li>Reporting Time: [Insert Time]</li>
+        <li>Pickup/Drop-off Location: [Insert Location]</li>
+      </ul>
+      <h2 class="section-title">Instructions</h2>
+      <ul>
+        <li>Participants must carry a water bottle, towel, and extra pair of clothes.</li>
+        <li>Wear comfortable clothing and footwear suitable for water activities.</li>
+        <li>Avoid carrying valuable items like expensive jewelry or electronic gadgets.</li>
+        <li>Notify organizers about special needs or dietary restrictions.</li>
+        <li>Arrive at the pickup point on time.</li>
+      </ul>
+        <button type="button" class="back-button" onclick="prevSection(2)">Back</button>
+        <button type="button" class="next-button" onclick="nextSection(4)">Next</button>
+      </section>
+
+      <!-- Section 4: Payment Section -->
+      <section class="form-section" id="section4">
+        <h2 class="section-title">Payment Options</h2>
+        <div class="form-group">
+          <label for="paymentOption">Select Payment Method</label>
+          <select id="paymentOption" name="paymentMethod" required onchange="showPaymentDetails()">
+            <option value="">--Select Payment Method--</option>
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+          </select>          
+        </div>
+        <div id="cashDetails" style="display: none;">
+          <p>Please bring the exact cash amount to the organizer.</p>
+        </div>
+        <div id="upiDetails" style="display: none; text-align: center;">
+          <p>Scan the QR code below to pay:</p>
+          <img src="https://i.ibb.co/X54jP1L/Screenshot-20241123-124247-GPay.jpg" alt="UPI QR Code" style="width: 200px; margin: 10px;">
+          <p><strong>UPI ID:</strong> oamshah2121@oksbi</p>
+          <p id="amountToPay" style="font-size: 18px; font-weight: bold;">Amount: ₹0</p>
+        </div>
+        <div class="form-group">
+          <label for="paymentStatus">Select Payment Status</label>
+          <select id="paymentStatus" name="paymentStatus" required>
+            <option value="">--Select Payment Status--</option>
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+          </select>
+        </div>
+        <div class="button-container">
+          <button type="button" class="back-button" onclick="prevSection(3)">Back</button>
+          <button type="submit" class="submit-button">Submit</button>
+        </div>
+      </section>
+
+      <!-- Thank You Section -->
+      <section class="form-section" id="thankYouSection" style="display: none;">
+        <h2>Thank You!</h2>
+        <p>Your form has been successfully submitted. You may now close the form.</p>
+        <button id="downloadPdfButton" disabled onclick="generatePDF()">Download Your Form as PDF</button>
+        <button onclick="location.reload()">Go Back</button>
+      </section>      
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
